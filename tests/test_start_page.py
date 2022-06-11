@@ -56,10 +56,6 @@ class TestStartPage:
         start_page.verify_invalid_error_message()
         time.sleep(2)
 
-    # email_field = driver.find_element(By.NAME, 'email')
-    # email = random_symbol("Test", 3)
-    # password_field.send_keys("P@ssw0rd")
-
     def test_invalid_password_login(self, start_page):
         """
         - create driver

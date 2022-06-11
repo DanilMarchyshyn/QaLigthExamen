@@ -10,12 +10,6 @@ class RegisterPage(BasePage):
         super().__init__(driver)
         self.constants = RegisterConstants()
 
-    # def login(self, email="", password=""):
-    #     """"Login provide value"""
-    #     self.fill_field(attributes=By.NAME, locator=self.constants.EMAIL_FIELD_NAME, value=email)
-    #     self.fill_field(attributes=By.XPATH, locator=self.constants.PASSWORD_FIELD_XPATH, value=password)
-    #     self.click(attributes=By.XPATH, locator=self.constants.LOGIN_BUTTON_XPATH)
-
     def register_fill_field(self, fullname="", email="", password=""):
         """Register provide value"""
         self.fill_field(attributes=By.NAME, locator=self.constants.FULLNAME_FIELD_NAME, value=fullname)

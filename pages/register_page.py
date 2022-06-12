@@ -29,3 +29,9 @@ class RegisterPage(BasePage):
         """Verify error Invalid email ot password for login"""
         error_message_invalid = self.driver.find_element(By.XPATH, value=self.constants.ERROR_MESSAGE_AGREE_TERMS_XPATH)
         assert error_message_invalid.text == self.constants.ERROR_MESSAGE_AGREE_TERMS_TEXT
+
+    def verify_required_error_message(self):
+        """Verify error field is required for registration"""
+        error_message_fullname = self.driver.find_element(By.XPATH, value=self.constants.ERROR_MESSAGE_FULLNAME_XPATH)
+        error_message_email = self.driver.find_element(By.XPATH, value=self.constants.ERROR_MESSAGE_EMAIL_XPATH)
+        assert error_message_fullname.text == error_message_email.text == self.constants.ERROR_MESSAGE_REQUIRED_TEXT

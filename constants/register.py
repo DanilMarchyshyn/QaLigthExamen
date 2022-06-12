@@ -7,3 +7,6 @@ class RegisterConstants:
     CREATE_ACC_BUTTON_XPATH = "//button[@type='submit']"
     ERROR_MESSAGE_AGREE_TERMS_XPATH = '//*[@class="form-block"]/form/p'
     ERROR_MESSAGE_AGREE_TERMS_TEXT = 'You must agree with terms and conditions'
+    ERROR_MESSAGE_FULLNAME_XPATH = "//div[@class='form-inputs']/div[1]/span/div/p"
+    ERROR_MESSAGE_EMAIL_XPATH = "//div[@class='form-inputs']/div[2]/span/div/p"
+    ERROR_MESSAGE_REQUIRED_TEXT = 'This field is required!'

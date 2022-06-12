@@ -97,3 +97,24 @@ class TestStartPage:
                                                 password="P@ssw0rd", phone="0501112233")
         start_page.register.click_create_acc_button()
         start_page.register.verify_agree_terms_error_message()
+
+    def test_empty_fullname_email_register(self, start_page):
+        """
+        - create driver
+        - open main page
+        - click button Get Started
+        - fill field 'Full Name' with empty value
+        - fill field 'Email' with empty value
+        - fill field 'Password' with correct value
+        - fill field 'Phone' with correct value
+        - click checkbox 'I agree terms...'
+        - click button 'Create my account'
+        - verify error This field is required!
+        """
+
+        start_page.header.click_get_started_button()
+        start_page.register.register_fill_field(fullname="", email="",
+                                                password="P@ssw0rd", phone="0501112233")
+        start_page.register.click_agree_checkbox()
+        start_page.register.click_create_acc_button()
+        start_page.register.verify_required_error_message()

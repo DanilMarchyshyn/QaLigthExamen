@@ -12,7 +12,7 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
-        self.waiter = WebDriverWait(driver=driver, timeout=10)
+        self.waiter = WebDriverWait(driver=driver, timeout=20)
 
     def fill_field(self, attributes, locator, value):
         """Send data into the field"""
@@ -37,7 +37,7 @@ def create_driver(browser: str):
         driver = MozilaDriver(options=options)
     else:
         raise ValueError(f"Unknown browser name: '{browser}'")
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     driver.maximize_window()
     driver.get(BaseConstants.BASE_URL)
     return driver

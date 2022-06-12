@@ -1,11 +1,7 @@
-import time
-
 import pytest
 
-from pages.footer_page import FooterPage
 from pages.base_page import create_driver, random_symbol
 from constants.base import BaseConstants
-from pages.login_page import LoginPage
 from pages.start_page import StartPage
 
 
@@ -28,7 +24,6 @@ class TestStartPage:
         - verify required error message
         """
 
-        # start_page.login_header()
         start_page.header.login_header()
         start_page.login()
         start_page.verify_required_error_message()
@@ -47,11 +42,8 @@ class TestStartPage:
         """
 
         start_page.header.login_header()
-        time.sleep(2)
         start_page.login(email=random_symbol("Test", 3), password="P@ssw0rd")
-        time.sleep(2)
         start_page.verify_invalid_error_message()
-        time.sleep(2)
 
     def test_invalid_password_login(self, start_page):
         """
@@ -87,49 +79,20 @@ class TestStartPage:
         start_page.login(email="testqaligth@yopmail.com", password="P@ssw0rd")
         start_page.footer.verify_logout_link()
 
-    # def test_create_valid_account(self, start_page):
-    #     """
-    #     - create driver
-    #     - open main page
-    #     - click link Log In
-    #     - click link Create an account
-    #     - fill field 'Full Name' with corect value
-    #     - fill field 'Email' with corect value
-    #     - fill field 'Password' with corect value
-    #     - click checkbox 'I agree to the Terms and Conditions'
-    #     - click button 'Create my account'
-    #     - verify on 'Logout' link
-    #     """
-    #
-    #     start_page.header.login_header()
-    #     time.sleep(2)
-    #     start_page.click_acc_link()
-    #     time.sleep(2)
-    #     start_page.register.register_fill_field(fullname="Test", email=random_symbol("Test", 7) + "@yopmail.com", password="P@ssw0rd")
-    #     time.sleep(2)
-    #     start_page.register.click_agree_checkbox()
-    #     time.sleep(2)
-    #     start_page.register.click_create_acc_button()
-    #     time.sleep(20)
-    #     start_page.footer.verify_logout_link()
-    #     time.sleep(20)
-
     def test_create_account_without_agree_terms(self, start_page):
         """
         - create driver
         - open main page
-        - click link Log In
-        - click link Create an account
-        - fill field 'Full Name' with corect value
-        - fill field 'Email' with corect value
-        - fill field 'Password' with corect value
-        - click checkbox 'I agree to the Terms and Conditions'
+        - click button Get Started
+        - fill field 'Full Name' with correct value
+        - fill field 'Email' with correct value
+        - fill field 'Password' with correct value
+        - fill field 'Phone' with correct value
         - click button 'Create my account'
-        - verify on 'Login' button
+        - verify error message agree terms
         """
 
-        start_page.header.login_header()
-        start_page.click_acc_link()
+        start_page.header.click_get_started_button()
         start_page.register.register_fill_field(fullname="Test", email=random_symbol("Test", 7) + "@yopmail.com",
                                                 password="P@ssw0rd", phone="0501112233")
         start_page.register.click_create_acc_button()

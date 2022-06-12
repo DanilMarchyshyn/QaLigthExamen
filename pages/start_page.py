@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from constants.login import LoginConstants
 from pages.base_page import BasePage
 from constants.header import HeaderConstants

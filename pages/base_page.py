@@ -4,7 +4,6 @@ import string
 from selenium import webdriver
 from selenium.webdriver.chrome.webdriver import WebDriver as ChromeDriver
 from selenium.webdriver.firefox.webdriver import WebDriver as MozilaDriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from constants.base import BaseConstants
 
@@ -31,7 +30,6 @@ def create_driver(browser: str):
     """Create driver driver according to provided browser"""
     if browser == BaseConstants.CHROME:
         options = webdriver.ChromeOptions()
-        # options.add_argument("headless")
         driver = ChromeDriver(options=options)
     elif browser == BaseConstants.FIREFOX:
         options = webdriver.firefox.webdriver.Options()

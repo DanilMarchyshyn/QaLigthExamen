@@ -10,11 +10,12 @@ class RegisterPage(BasePage):
         super().__init__(driver)
         self.constants = RegisterConstants()
 
-    def register_fill_field(self, fullname="", email="", password=""):
+    def register_fill_field(self, fullname="", email="", password="", phone=""):
         """Register provide value"""
-        self.fill_field(attributes=By.NAME, locator=self.constants.FULLNAME_FIELD_NAME, value=fullname)
-        self.fill_field(attributes=By.NAME, locator=self.constants.EMAIL_FIELD_NAME, value=email)
+        self.fill_field(attributes=By.XPATH, locator=self.constants.FULLNAME_FIELD_XPATH, value=fullname)
+        self.fill_field(attributes=By.XPATH, locator=self.constants.EMAIL_FIELD_XPATH, value=email)
         self.fill_field(attributes=By.XPATH, locator=self.constants.PASSWORD_FIELD_XPATH, value=password)
+        self.fill_field(attributes=By.XPATH, locator=self.constants.PHONE_FIELD_XPATH, value=phone)
 
     def click_agree_checkbox(self):
         """Click on 'I agree to the Terms and Conditions' checkbox"""

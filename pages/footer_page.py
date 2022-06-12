@@ -12,6 +12,6 @@ class FooterPage(BasePage):
 
     def verify_logout_link(self):
         """Verify 'Logout' link on footer"""
-        element_logout = self.driver.find_element(By.XPATH, '//*[@class="signOutFooter"]/a')
+        element_logout = self.driver.find_element(By.XPATH, value=self.constants.LOGOUT_LINK_XPATH)
         self.driver.execute_script("return arguments[0].scrollIntoView(true);", element_logout)
-        assert element_logout.text == "Logout"
+        assert element_logout.text == self.constants.LOGOUT_LINK_TEXT

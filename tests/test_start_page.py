@@ -30,11 +30,8 @@ class TestStartPage:
 
         # start_page.login_header()
         start_page.header.login_header()
-        time.sleep(2)
         start_page.login()
-        time.sleep(5)
         start_page.verify_required_error_message()
-        time.sleep(2)
 
     def test_invalid_email_login(self, start_page):
         """
@@ -52,7 +49,7 @@ class TestStartPage:
         start_page.header.login_header()
         time.sleep(2)
         start_page.login(email=random_symbol("Test", 3), password="P@ssw0rd")
-        time.sleep(5)
+        time.sleep(2)
         start_page.verify_invalid_error_message()
         time.sleep(2)
 
@@ -70,11 +67,8 @@ class TestStartPage:
         """
 
         start_page.header.login_header()
-        time.sleep(2)
         start_page.login(email="testqaligth@yopmail.com", password="Incorrect")
-        time.sleep(5)
         start_page.verify_invalid_error_message()
-        time.sleep(2)
 
     def test_existing_user_login(self, start_page):
         """
@@ -90,11 +84,8 @@ class TestStartPage:
         """
 
         start_page.header.login_header()
-        time.sleep(2)
         start_page.login(email="testqaligth@yopmail.com", password="P@ssw0rd")
-        time.sleep(2)
         start_page.footer.verify_logout_link()
-        time.sleep(2)
 
     # def test_create_valid_account(self, start_page):
     #     """
@@ -138,13 +129,8 @@ class TestStartPage:
         """
 
         start_page.header.login_header()
-        time.sleep(2)
         start_page.click_acc_link()
-        time.sleep(2)
         start_page.register.register_fill_field(fullname="Test", email=random_symbol("Test", 7) + "@yopmail.com",
-                                                password="P@ssw0rd")
-        time.sleep(2)
+                                                password="P@ssw0rd", phone="0501112233")
         start_page.register.click_create_acc_button()
-        time.sleep(2)
         start_page.register.verify_agree_terms_error_message()
-        time.sleep(2)
